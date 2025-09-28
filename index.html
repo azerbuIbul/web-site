@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Back2Life - Rebirth and Transformation</title>
+    <meta name="description" content="Back2Life helps individuals and organizations achieve transformation through innovative rebirth strategies and sustainable growth methodologies.">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
             --primary: #0a0a0a;
@@ -38,15 +40,19 @@
         /* Header Styles */
         header {
             padding: 30px 0;
-            position: relative;
-            z-index: 100;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
             transition: all 0.3s ease;
+            background: transparent;
         }
         
-        .scrolled {
+        header.scrolled {
             background: rgba(10, 10, 10, 0.95);
             backdrop-filter: blur(10px);
             padding: 15px 0;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
         }
         
         .nav-container {
@@ -86,10 +92,7 @@
         nav ul {
             display: flex;
             list-style: none;
-        }
-        
-        nav ul li {
-            margin-left: 30px;
+            gap: 30px;
         }
         
         nav ul li a {
@@ -123,26 +126,17 @@
         
         /* Hero Section */
         .hero {
-            height: 85vh;
+            height: 100vh;
             display: flex;
             align-items: center;
             position: relative;
             overflow: hidden;
-        }
-        
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
             background: radial-gradient(circle at 30% 50%, rgba(139, 69, 19, 0.1) 0%, rgba(10, 10, 10, 0.9) 70%);
-            z-index: -1;
         }
         
         .hero-content {
             max-width: 650px;
+            margin-top: 80px;
         }
         
         .hero h1 {
@@ -179,6 +173,8 @@
             box-shadow: 0 4px 15px rgba(139, 69, 19, 0.3);
             opacity: 0;
             animation: fadeInUp 1s ease forwards 1.1s;
+            border: none;
+            cursor: pointer;
         }
         
         .cta-button:hover {
@@ -234,6 +230,10 @@
             font-size: 2.5rem;
             color: var(--accent);
             margin-bottom: 20px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
         .feature-card h3 {
@@ -281,24 +281,19 @@
             border-radius: 10px;
             position: relative;
             overflow: hidden;
-        }
-        
-        .about-image::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(139,69,19,0.1)"/></svg>');
-            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+            font-size: 1.1rem;
         }
         
         /* Footer */
         footer {
             background-color: var(--primary);
-            padding: 40px 0 20px;
+            padding: 60px 0 20px;
             text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
         
         .footer-logo {
@@ -314,6 +309,7 @@
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             color: var(--text-light);
             font-size: 0.9rem;
+            margin-top: 40px;
         }
         
         /* Animations */
@@ -332,24 +328,29 @@
         @media (max-width: 992px) {
             .about-content {
                 flex-direction: column;
+                text-align: center;
             }
             
             .hero h1 {
                 font-size: 2.8rem;
+            }
+            
+            .about-image {
+                width: 100%;
+                margin-top: 40px;
             }
         }
         
         @media (max-width: 768px) {
             .nav-container {
                 flex-direction: column;
+                gap: 20px;
             }
             
             nav ul {
-                margin-top: 20px;
-            }
-            
-            nav ul li {
-                margin: 0 15px;
+                gap: 20px;
+                flex-wrap: wrap;
+                justify-content: center;
             }
             
             .hero h1 {
@@ -359,25 +360,33 @@
             .hero p {
                 font-size: 1rem;
             }
+            
+            .hero-content {
+                text-align: center;
+                margin-top: 120px;
+            }
         }
         
         @media (max-width: 576px) {
             .hero {
                 height: auto;
-                padding: 80px 0;
+                padding: 120px 0 80px;
             }
             
             .features-grid {
                 grid-template-columns: 1fr;
             }
             
-            nav ul {
-                flex-wrap: wrap;
-                justify-content: center;
+            .feature-card {
+                padding: 30px 20px;
             }
             
-            nav ul li {
-                margin: 5px 10px;
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
             }
         }
     </style>
@@ -454,7 +463,7 @@
                     <p>With a team of experienced transformation specialists, we've helped organizations across industries navigate complex challenges and emerge stronger than ever.</p>
                 </div>
                 <div class="about-image">
-                    <!-- Background image added via CSS -->
+                    Transformation Visualization
                 </div>
             </div>
         </div>
@@ -464,13 +473,13 @@
     <footer>
         <div class="container">
             <div class="footer-logo">BACK2LIFE</div>
+            <p style="color: var(--text-light); margin-bottom: 20px;">Your journey to rebirth and transformation starts here.</p>
             <div class="copyright">
                 <p>&copy; 2025 Back2Life.world. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <script>
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -483,7 +492,7 @@
                 const targetElement = document.querySelector(targetId);
                 if(targetElement) {
                     window.scrollTo({
-                        top: targetElement.offsetTop - 80,
+                        top: targetElement.offsetTop - 100,
                         behavior: 'smooth'
                     });
                 }
@@ -493,11 +502,17 @@
         // Add scroll effect to header
         window.addEventListener('scroll', function() {
             const header = document.getElementById('header');
-            if (window.scrollY > 100) {
+            if (window.scrollY > 50) {
                 header.classList.add('scrolled');
             } else {
                 header.classList.remove('scrolled');
             }
+        });
+
+        // Mobile menu functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const header = document.getElementById('header');
+            header.classList.add('scrolled');
         });
     </script>
 </body>
